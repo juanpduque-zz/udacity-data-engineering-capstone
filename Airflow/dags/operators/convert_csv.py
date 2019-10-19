@@ -87,7 +87,7 @@ class ConvertCsv(BaseOperator):
            
             for table in sas_label_ext.keys():
                 if 'df' in sas_label_ext[table].keys():
-                    with open(os.path.join("/Users/juanduque/airflow/data", table +
+                    with open(os.path.join("/airflow/data", table +
                                            ".csv"),
                               "w") as output_file:
                         sas_label_ext[table]['df'].to_csv(output_file,

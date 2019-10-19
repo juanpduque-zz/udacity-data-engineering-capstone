@@ -13,7 +13,7 @@ def read_immigration_data():
     config("spark.jars.packages","saurfang:spark-sas7bdat:2.0.0-s_2.11")\
     .enableHiveSupport().getOrCreate()
 
-    df_spark=spark.read.parquet("/Users/juanduque/airflow/data/immigration-data")
+    df_spark=spark.read.parquet("airflow/data/immigration-data")
 
     get_date = udf(lambda x: datetime.datetime(1,1,1).strftime('%Y-%m-%d %H:%M:%S') if x is None else\
                (datetime.datetime(1960, 1, 1) + datetime.timedelta(seconds=int(x*24*60*60)))\
@@ -53,7 +53,7 @@ def read_immigration_data():
 def read_demographics():
   
 
-    data_path = "/Users/juanduque/airflow/data/us-cities-demographics.csv"
+    data_path = "airflow/data/us-cities-demographics.csv"
 
     demographics = pd.read_csv(data_path, delimiter=';', index_col=None)
 
@@ -65,7 +65,7 @@ def read_demographics():
 def read_airport_codes():
    
 
-    data_path = "/Users/juanduque/airflow/data/airport-codes_csv.csv"
+    data_path = "airflow/data/airport-codes_csv.csv"
 
     airport_codes = pd.read_csv(data_path)
 
@@ -77,7 +77,7 @@ def read_airport_codes():
 def read_countries():
    
 
-    data_path = "/Users/juanduque/airflow/data/i94cit&i94res.csv"
+    data_path = "airflow/data/i94cit&i94res.csv"
 
     countries = pd.read_csv(data_path)
 
@@ -88,7 +88,7 @@ def read_countries():
 def read_visa_codes():
    
 
-    data_path = "/Users/juanduque/airflow/data/i94visa.csv"
+    data_path = "airflow/data/i94visa.csv"
 
     visa_codes = pd.read_csv(data_path)
 
@@ -99,7 +99,7 @@ def read_visa_codes():
 def read_travel_mode():
    
 
-    data_path = "/Users/juanduque/airflow/data/i94mode.csv"
+    data_path = "airflow/data/i94mode.csv"
 
     travel_mode = pd.read_csv(data_path)
 
