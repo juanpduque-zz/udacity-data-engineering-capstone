@@ -18,7 +18,7 @@ class ConvertCsv(BaseOperator):
 
     def execute(self, context):
 
-       with open("/Users/juanduque/airflow/data/I94_SAS_Labels_Descriptions.SAS", "r", encoding='utf-8') as main_file:
+       with open("/airflow/data/I94_SAS_Labels_Descriptions.SAS", "r", encoding='utf-8') as main_file:
             file = main_file.read()
 
             sas_label_ext = {}
